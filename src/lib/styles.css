@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap');
+
+:root {
+    /* Premium Glossy Black Theme */
+    --color-primary: #D22B2B;
+    /* Deep Fire Engine Red */
+
+    /* "Glasing Black" - Deep, High-Gloss Black with subtle spotlight */
+    --color-secondary: #050505;
+    --background-gradient: radial-gradient(circle at 50% 0%, #1a0505 0%, #000000 60%);
+
+    /* Premium Glass Cards */
+    --color-tertiary: rgba(20, 20, 20, 0.6);
+    --color-tertiary-hover: rgba(30, 30, 30, 0.8);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.08);
+    --glass-highlight: 1px solid rgba(255, 255, 255, 0.15);
+
+    --color-text-main: #ffffff;
+    --color-text-light: #cccccc;
+
+    --color-gold: #FFD700;
+    --color-gold-gradient: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
+    --color-overlay: rgba(0, 0, 0, 0.7);
+
+    --font-main: 'Outfit', sans-serif;
+
+    --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 15px 35px rgba(0, 0, 0, 0.6);
+    --shadow-lg: 0 30px 60px rgba(0, 0, 0, 0.8);
+    --shadow-glow: 0 0 30px rgba(210, 43, 43, 0.3);
+    /* Red glow */
+
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+}
+
+body {
+    background-color: var(--color-secondary);
+    background-image: var(--background-gradient);
+    min-height: 100vh;
+    background-attachment: fixed;
+    /* Added subtle noise texture if possible, but kept simple for now */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Premium Scroll Animation Utilities */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+    filter: blur(10px);
+    transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    /* "Out Quart" smooth easing */
+    will-change: opacity, transform, filter;
+}
+
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+}
+
+/* Staggered delays for groups */
+.delay-100 {
+    transition-delay: 0.1s;
+}
+
+.delay-200 {
+    transition-delay: 0.2s;
+}
+
+.delay-300 {
+    transition-delay: 0.35s;
+}
+
+.delay-400 {
+    transition-delay: 0.5s;
+}
+
+.delay-500 {
+    transition-delay: 0.65s;
+}
+
+/* Reset & Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--color-text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+    font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    font-family: var(--font-main);
+    color: white;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+}
+
+h5 {
+    font-size: 1.1rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+/* --- Premium Utilities --- */
+
+/* Gold Gradient Text */
+.text-gradient-gold {
+    background: var(--color-gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% auto;
+    animation: shine 4s linear infinite;
+    display: inline-block;
+}
+
+.premium-text {
+    letter-spacing: 0.02em;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+.premium-header {
+    letter-spacing: -0.03em;
+    font-weight: 700;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* Premium Glassmorphism Panel */
+.glass-panel {
+    background: rgba(20, 20, 20, 0.4);
+    /* Darker base for "glasing black" */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    /* Safari support */
+    border: var(--glass-border);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    /* Deeper shadow */
+    border-top: var(--glass-highlight);
+    /* Highlight top edge for 3D glass effect */
+    border-radius: var(--radius-md);
+}
+
+/* 3D Hover Effect */
+.hover-3d {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+
+.hover-3d:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
+    z-index: 10;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--color-text-light);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    h3 {
+        font-size: 1.35rem;
+    }
+
+    h4 {
+        font-size: 1.15rem;
+    }
+
+    h5 {
+        font-size: 1rem;
+    }
+
+    h6 {
+        font-size: 0.9rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    /* Subtle border for separation */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Utilities */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 34px;
+    background: var(--color-primary);
+    color: white;
+    font-weight: 600;
+    border-radius: 50px;
+    border: 2px solid var(--color-primary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.btn:hover {
+    background: transparent;
+    color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(191, 29, 45, 0.3);
+}
+
+/* Updated Section Title for Premium Look */
+.section-title {
+    font-size: 2.8rem;
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 800;
+    position: relative;
+    display: block;
+    /* centering handled by text-align */
+    font-family: var(--font-main);
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    letter-spacing: -1px;
+}
+
+/* Removed old underline ::after */
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.75rem;
+    }
+}
+
+/* Removed underline */
+
+.card {
+    /* Inheriting glass panel properties manually for now to ensure consistency */
+    background: var(--color-tertiary);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: var(--glass-border);
+    border-top: var(--glass-highlight);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+section {
+    padding: 5rem 0;
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 3rem 0;
+    }
+
+    .container {
+        padding: 0 16px;
+    }
+}
